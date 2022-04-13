@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% block content %}
+    <article class="post">
+        <aside class="actions">
+            <a class="btn btn-secondary" href="{% url 'post_edit' posts.pk %}">
+                {% include 'icons/pencil-fill.svg' %}
+            </a>
+        </aside>
+        {% if posts.published_date %}
+            <time class="date">
+                {{ posts.published_date }}
+            </time>
+        {% endif %}
+        <h2>{{ posts.title }}</h2>
+        <p>{{ posts.text|linebreaksbr }}</p>
+    </article>
+{% endblock %}
